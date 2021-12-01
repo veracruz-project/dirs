@@ -24,7 +24,10 @@ mod sys;
 #[cfg(target_arch = "wasm32")]
 #[path = "wasm.rs"]
 mod sys;
-#[cfg(not(any(target_arch = "wasm32", windows, target_os = "macos", target_os = "ios")))]
+#[cfg(target_os = "icecap")]
+#[path = "icecap.rs"]
+mod sys;
+#[cfg(not(any(target_arch = "wasm32", windows, target_os = "macos", target_os = "ios", target_os = "icecap")))]
 #[path = "lin.rs"]
 mod sys;
 
